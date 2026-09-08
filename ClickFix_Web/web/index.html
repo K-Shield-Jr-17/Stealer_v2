@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="폐쇄형 보안 실습망에서 사용하는 교육 포털 모의 페이지">
+  <title>SCH Gym Lab</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="lab-banner" role="status">
+    <strong>LAB ONLY</strong>
+    <span>폐쇄형 보안 실습 페이지 · 실제 계정 정보 입력 금지</span>
+  </div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="SCH Gym Lab 홈">
+        <span class="brand-mark" aria-hidden="true">S</span>
+        <span><strong>SCH GYM</strong><small>SECURITY TRAINING LAB</small></span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="주요 메뉴">
+        <button class="nav-link is-active" type="button">훈련장</button>
+        <button class="nav-link" type="button" data-toast="문의 기능은 LAB에서 비활성화되어 있습니다.">문의</button>
+        <button class="nav-link" type="button" data-toast="매뉴얼 다운로드는 모의 동작입니다.">매뉴얼</button>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-button" id="notificationButton" type="button" aria-expanded="false" aria-controls="notificationPanel" aria-label="알림 보기">
+          <span aria-hidden="true">●</span><span class="notification-dot"></span>
+        </button>
+        <button class="profile-button" id="profileButton" type="button" aria-expanded="false" aria-controls="profilePanel">
+          <span class="avatar" aria-hidden="true">교</span>
+          <span>교육생</span>
+          <span aria-hidden="true">⌄</span>
+        </button>
+        <button class="mobile-menu-button" id="mobileMenuButton" type="button" aria-expanded="false" aria-controls="courseSidebar">메뉴</button>
+      </div>
+
+      <div class="dropdown notification-panel" id="notificationPanel" hidden>
+        <div class="dropdown-heading"><strong>알림</strong><span>1개</span></div>
+        <p><strong>실습망 점검 완료</strong><br><span>외부 시나리오망과 내부 서버망이 준비되었습니다.</span></p>
+      </div>
+      <div class="dropdown profile-panel" id="profilePanel" hidden>
+        <p><strong>교육생</strong><br><span>LAB 로컬 세션</span></p>
+        <button type="button" data-toast="로그아웃은 모의 동작입니다.">로그아웃</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="welcome-section">
+      <div class="welcome-inner">
+        <div class="robot-avatar" aria-hidden="true">⌁</div>
+        <div>
+          <p class="eyebrow">SECURITY CONTENTS HUB</p>
+          <h1><span>교육생</span>님, 안녕하세요!</h1>
+          <p>온라인 침해사고 대응 훈련장에 오신 것을 환영합니다.</p>
+        </div>
+      </div>
+      <div class="course-title-wrap">
+        <div>
+          <p class="eyebrow">현재 과정</p>
+          <h2>K-Shield Jr 17기 침해사고 대응 및 분석</h2>
+        </div>
+        <span class="status-chip"><span></span> LAB 연결됨</span>
+      </div>
+    </section>
+
+    <section class="workspace" aria-label="과정 훈련장">
+      <aside class="course-sidebar" id="courseSidebar">
+        <div class="sidebar-course">
+          <span class="course-icon" aria-hidden="true">K</span>
+          <div><small>교육 과정</small><strong>K-Shield Jr 17기</strong></div>
+        </div>
+        <button class="ctf-button" type="button" data-toast="CTF 연결은 LAB 데모에서 비활성화되어 있습니다."><span aria-hidden="true">⚑</span> CTF 접속하기</button>
+        <p class="sidebar-label">과목</p>
+        <div class="subject-list" role="list">
+          <button class="subject-button is-selected" type="button" data-subject="infra">IT 인프라 이해하기</button>
+          <button class="subject-button" type="button" data-subject="system">시스템 보안</button>
+          <button class="subject-button" type="button" data-subject="initial">침해사고 초동대응</button>
+          <button class="subject-button" type="button" data-subject="forensics">메모리/디스크 분석</button>
+          <button class="subject-button" type="button" data-subject="case">Case별 침해사고 분석</button>
+          <button class="subject-button" type="button" data-subject="malware">악성코드 분석 실무</button>
+        </div>
+      </aside>
+
+      <div class="content-panel">
+        <div class="subject-header">
+          <div>
+            <p class="eyebrow">SUBJECT 01</p>
+            <h3 id="subjectTitle">IT 인프라 이해하기</h3>
+          </div>
+          <div class="count-list" aria-label="과목 콘텐츠 수">
+            <span>VM <strong id="vmCount">2</strong></span>
+            <span>파일 <strong id="fileCount">1</strong></span>
+            <span>URL <strong id="urlCount">1</strong></span>
+          </div>
+        </div>
+
+        <section class="content-section">
+          <div class="section-heading">
+            <div><h4>가상환경</h4><p>실습 종료 후에는 모든 가상환경을 정상 종료해 주세요.</p></div>
+            <span class="section-tag">ISOLATED LAB</span>
+          </div>
+          <div class="card-grid" id="vmContainer">
+            <article class="resource-card accent-blue">
+              <div class="resource-icon" aria-hidden="true">W</div>
+              <div class="resource-content"><small>WORKSTATION</small><h5>Victim Windows 10</h5><p>ClickFix 최초 침투 및 호스트 아티팩트 수집</p></div>
+              <span class="resource-status">준비됨</span>
+            </article>
+            <article class="resource-card accent-violet">
+              <div class="resource-icon" aria-hidden="true">S</div>
+              <div class="resource-content"><small>SERVER ZONE</small><h5>AD/DC · File Server</h5><p>도메인 인증과 내부 파일 서버 접근 분석</p></div>
+              <span class="resource-status">내부망</span>
+            </article>
+          </div>
+        </section>
+
+        <section class="content-section divided">
+          <div class="section-heading">
+            <div><h4>실습파일</h4><p>아래 버튼은 LAB 내부에서만 동작하는 안전한 모의 토큰 발급 기능입니다.</p></div>
+          </div>
+          <article class="file-card">
+            <div class="file-type" aria-hidden="true">ZIP</div>
+            <div class="file-info"><h5 id="fileName">K-Shield_Jr_IR_Lab_Resources.zip</h5><p>망 구성도, 더미 로그 및 분석 체크리스트</p><span>24.8 MB · 실습 전용</span></div>
+            <button class="token-button" id="tokenButton" type="button">LAB 토큰 생성</button>
+          </article>
+        </section>
+
+        <section class="scenario-card">
+          <div>
+            <p class="eyebrow">CLICKFIX SIMULATION</p>
+            <h4>브라우저 보안 구성 확인</h4>
+            <p>실제 명령을 복사하거나 실행하지 않는 교육용 시뮬레이션입니다.</p>
+          </div>
+          <button class="scenario-button" id="scenarioButton" type="button">안전한 시뮬레이션 열기</button>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer><p>SCH Gym Lab · 폐쇄형 교육 환경 · 외부 전송 기능 없음</p></footer>
+
+  <div class="modal-backdrop" id="tokenModal" hidden>
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="tokenModalTitle">
+      <button class="modal-close" type="button" data-close-modal aria-label="닫기">×</button>
+      <span class="modal-symbol" aria-hidden="true">✓</span>
+      <p class="eyebrow">LOCAL LAB TOKEN</p>
+      <h2 id="tokenModalTitle">실습 토큰이 생성되었습니다</h2>
+      <p>이 토큰은 화면에서만 생성되며 서버로 전송되지 않습니다.</p>
+      <code id="tokenValue">LAB-000000</code>
+      <button class="primary-button" type="button" data-close-modal data-copy-demo>확인</button>
+    </section>
+  </div>
+
+  <div class="modal-backdrop" id="scenarioModal" hidden>
+    <section class="modal scenario-modal" role="dialog" aria-modal="true" aria-labelledby="scenarioModalTitle">
+      <button class="modal-close" type="button" data-close-modal aria-label="닫기">×</button>
+      <span class="warning-symbol" aria-hidden="true">!</span>
+      <p class="eyebrow">SECURITY AWARENESS</p>
+      <h2 id="scenarioModalTitle">이런 안내가 나오면 멈추세요</h2>
+      <p>웹페이지가 <strong>Win + R</strong>, PowerShell 또는 터미널 명령 실행을 요구한다면 ClickFix 사회공학 공격일 수 있습니다.</p>
+      <div class="safe-checklist">
+        <span>1. 명령을 실행하지 않기</span>
+        <span>2. 창을 닫고 보안 담당자에게 신고</span>
+        <span>3. 이미 실행했다면 네트워크 격리</span>
+      </div>
+      <button class="primary-button" type="button" data-close-modal>교육 내용 확인</button>
+    </section>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <script src="js/app.js"></script>
+</body>
+</html>

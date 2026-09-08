@@ -1,0 +1,4 @@
+﻿employee_id,name,department,email,status
+EMP-1001,김민준,보안운영팀,minjun.kim@example.test,재직
+EMP-1002,이서연,개발팀,seoyeon.lee@example.test,재직
+EMP-1003,박지훈,인프라팀,jihoon.park@example.test,휴가
