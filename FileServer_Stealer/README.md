@@ -59,6 +59,7 @@ Python 소스를 분석할 때는 표준 라이브러리만 사용하므로 별�
 FileServerStealer.py는 Windows에 연결된 네트워크 드라이브를 탐색한 뒤, 네트워크 드라이브가 정확히 하나일 때 해당 드라이브를 실습 대상으로 사용합니다.
 
 **File Server 설정**
+<br/>
 File Server에서 다음 작업을 수행합니다.
 
 1. C:\CompanyData 폴더를 생성한 후 실습용 테스트 데이터를 저장합니다.
