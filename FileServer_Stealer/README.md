@@ -20,7 +20,7 @@ Python 소스 코드입니다. 실행하면 다음 작업을 수행합니다.
 4. 검색된 파일을 원래 드라이브 기준의 상대 경로로 ZIP 파일에 저장합니다.
 5. 결과 ZIP을 `C:\Windows\Temp\Kisec`에 생성합니다.
 
-네트워크 드라이브가 없거나 여러 개이면 자동 수집을 중단하도록 되어 있습니다.
+네트워크 드라이브가 없거나 여러 개이면 자동 수집을 중단하도록 되어 있습니다. 네트워크 드라이브 설정은 **네트워크 공유 드라이브 설정** 단계에서 확인할 수 있습니다.
 
 ### `FileServerStealer.exe`
 
@@ -53,6 +53,32 @@ C:\Windows\Temp\Kisec\Kisec_Documents_YYYYMMDD_HHMMSS.zip
 - 소스 파일과 EXE를 동시에 실행하지 않습니다.
 
 Python 소스를 분석할 때는 표준 라이브러리만 사용하므로 별도 패키지 설치가 필요하지 않습니다.
+
+## 네트워크 공유 드라이브 설정
+
+FileServerStealer.py는 Windows에 연결된 네트워크 드라이브를 탐색한 뒤, 네트워크 드라이브가 정확히 하나일 때 해당 드라이브를 실습 대상으로 사용합니다.
+
+**File Server 설정**
+File Server에서 다음 작업을 수행합니다.
+
+1. C:\CompanyData 폴더를 생성한 후 실습용 테스트 데이터를 저장합니다.
+2. CompanyData 폴더를 우클릭한 뒤 
+Properties → Sharing → Advanced Sharing… 으로 이동합니다. 
+3. Share this folder를 체크하고 Share name을 다음과 같이 설정합니다. 
+- Share name : Company Data
+4. Permissions에서 접근권한을 Read로 부여합니다.
+5. 폴더의 Properties → Security → Edit에서 실습용 계정인 employee01를 선택하고 NTFS 권한을 Full control Allow으로 설정합니다.
+6. CMD를 실행한 뒤 다음 명령으로 공유 폴더가 정상적으로 등록되었는지 확인합니다.
+`net share'
+출력 목록에 **CompanyData**가 표시되면 공유 설정이 완료된 것입니다.
+
+**Victim PC에서 공유 폴더를 확인**
+
+1. win + R을 누른 뒤 다음 경로를 입력합니다.
+`\\FILE-SRV\CompanyData` 
+호스트 이름으로 접속되지 않는 경우 File Server의 IP 주소를 사용합니다.
+`\\192.168.60.20\CompanyData`
+2. 공유 폴더가 열리고 내부의 테스트 파일이 정상적으로 표시되면 연결이 완료된 것입니다.
 
 ## 관찰할 내용
 
