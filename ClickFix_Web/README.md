@@ -449,7 +449,3 @@ sudo systemctl reload nginx
 - 실습망은 외부망과 분리된 Host-only 또는 Internal Network로 구성해야 합니다.
 - 인터넷 사용을 위해 추가한 보조 NAT 어댑터는 실습 전에 비활성화하거나 제거합니다.
 - 실습이 끝나면 모든 VM의 네트워크 격리 상태를 다시 확인합니다.
-
-## 저장소
-
-[K-Shield-Jr-17/ClickFix-WEB](https://github.com/K-Shield-Jr-17/ClickFix-WEB)
