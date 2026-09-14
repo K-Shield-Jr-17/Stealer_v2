@@ -72,7 +72,7 @@ AD/DC와 File Server는 Network Adapter를 하나만 사용하며, 반드시 **V
 
 ---
 
-## 3. VM-01 Attacker (Kali Linux) — `192.168.50.10`
+## 3. VM-01 Attacker (Kali Linux) - `192.168.50.10`
 
 1. [Kali Linux VM 이미지](https://www.kali.org/get-kali/#kali-virtual-machines) 다운로드 후 VMware에 등록
 2. 네트워크 인터페이스 설정 파일 수정
@@ -108,7 +108,7 @@ AD/DC와 File Server는 Network Adapter를 하나만 사용하며, 반드시 **V
 
 ---
 
-## 4. VM-02 ClickFix Web (Ubuntu Server) — `192.168.50.30`
+## 4. VM-02 ClickFix Web (Ubuntu Server) - `192.168.50.30`
 
 1. [Ubuntu Server 이미지](https://ubuntu.com/download/server) 다운로드 후 설치
 2. Netplan 설정 파일 수정
@@ -141,7 +141,7 @@ AD/DC와 File Server는 Network Adapter를 하나만 사용하며, 반드시 **V
 
 ---
 
-## 5. VM-03 AD/DC (Windows Server 2022) — `192.168.60.5`
+## 5. VM-03 AD/DC (Windows Server 2022) - `192.168.60.5`
 
 ### 5-1. OS 설치
 
@@ -200,7 +200,7 @@ IP Routing Enabled  : No
 
 ---
 
-## 6. VM-04 Victim PC (Windows 10) — `192.168.50.101` / `192.168.60.101`
+## 6. VM-04 Victim PC (Windows 10) - `192.168.50.101` / `192.168.60.101`
 
 로컬 계정: `DESKTOP-IS00QJN\kisec` / `kisec123`
 
@@ -229,7 +229,7 @@ VMware에서 **Add → Network Adapter**로 두 번째 어댑터를 추가하고
 
 ---
 
-## 7. VM-05 File Server (Windows Server 2022) — `192.168.60.20`
+## 7. VM-05 File Server (Windows Server 2022) - `192.168.60.20`
 
 ### 7-1. OS 설치
 
